@@ -77,7 +77,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground text-sm">Dirección</h4>
-                <p className="text-muted-foreground text-sm">Buenos Aires, Argentina</p>
+                <p className="text-muted-foreground text-sm">Mar del Plata, Buenos Aires, Argentina</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
