@@ -15,7 +15,7 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold text-primary-foreground text-sm mb-4">Enlaces</h4>
           <ul className="space-y-2">
-            {["Inicio", "Servicios", "Nosotros", "Blog", "Contacto"].map((l) => (
+            {["Inicio", "Servicios", "Nosotros", "Contacto"].map((l) => (
               <li key={l}>
                 <a href={`#${l.toLowerCase()}`} className="text-primary-foreground/60 text-sm hover:text-primary-foreground transition-colors">
                   {l}
