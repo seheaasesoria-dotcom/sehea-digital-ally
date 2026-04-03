@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyUsSection from "@/components/WhyUsSection";
-
+import VideoSection from "@/components/VideoSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -14,7 +14,7 @@ const Index = () => (
       <HeroSection />
       <ServicesSection />
       <WhyUsSection />
-      
+      <VideoSection />
       <ContactSection />
     </main>
     <Footer />
