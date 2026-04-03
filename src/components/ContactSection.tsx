@@ -103,7 +103,7 @@ const ContactSection = () => {
             <div className="rounded-xl overflow-hidden border border-border h-48">
               <iframe
                 title="Ubicación SEHEA"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52520.37269759498!2d-58.44159705!3d-34.6036844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires!5e0!3m2!1ses-419!2sar!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50000!2d-57.5575!3d-38.0055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d948cbd3ab05%3A0x7138de60c4064043!2sMar%20del%20Plata%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1700000000000"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
