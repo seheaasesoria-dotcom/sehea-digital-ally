@@ -14,10 +14,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16 md:h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border shadow-sm">
+      <div className="container flex items-center justify-between h-18 md:h-22">
         <a href="#inicio" className="flex items-center gap-2">
-          <img src={logo} alt="SEHEA - Asesoría en Seguridad e Higiene" className="h-10 md:h-12" />
+          <img src={logo} alt="SEHEA - Asesoría en Seguridad e Higiene" className="h-14 md:h-16" />
         </a>
 
         {/* Desktop */}
