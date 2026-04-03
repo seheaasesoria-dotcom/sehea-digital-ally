@@ -86,7 +86,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground text-sm">Email</h4>
-                <p className="text-muted-foreground text-sm">info@sehea.com.ar</p>
+                <p className="text-muted-foreground text-sm">sehea.asesoria@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
