@@ -61,7 +61,8 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Form */}
-          <form onSubmit={handleSubmit} className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} name="contacto-sehea" data-netlify="true" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+            <input type="hidden" name="form-name" value="contacto-sehea" />
             <input required name="nombre" placeholder="Nombre completo *" className={inputClass} maxLength={100} />
             <input required name="empresa" placeholder="Empresa *" className={inputClass} maxLength={100} />
             <select required name="rubro" className={inputClass} defaultValue="">
