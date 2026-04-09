@@ -17,12 +17,22 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("¡Mensaje enviado! Nos pondremos en contacto a la brevedad.");
-      (e.target as HTMLFormElement).reset();
-    }, 1200);
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const nombre = data.get("nombre") || "";
+    const empresa = data.get("empresa") || "";
+    const rubro = data.get("rubro") || "";
+    const telefono = data.get("telefono") || "";
+    const servicio = data.get("servicio") || "";
+    const mensaje = data.get("mensaje") || "";
+
+    const subject = encodeURIComponent(`Consulta de ${nombre} - ${empresa}`);
+    const body = encodeURIComponent(
+      `Nombre: ${nombre}\nEmpresa: ${empresa}\nRubro: ${rubro}\nTeléfono: ${telefono}\nServicio de interés: ${servicio}\n\nMensaje:\n${mensaje}`
+    );
+
+    window.open(`mailto:sehea.asesoria@gmail.com?subject=${subject}&body=${body}`, "_self");
+    toast.success("Se abrirá tu cliente de correo para enviar la consulta.");
   };
 
   const inputClass =
