@@ -14,25 +14,33 @@ const servicios = [
 
 const ContactSection = () => {
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSending(true);
     const form = e.target as HTMLFormElement;
-    const data = new FormData(form);
-    const nombre = data.get("nombre") || "";
-    const empresa = data.get("empresa") || "";
-    const rubro = data.get("rubro") || "";
-    const telefono = data.get("telefono") || "";
-    const servicio = data.get("servicio") || "";
-    const mensaje = data.get("mensaje") || "";
+    const formData = new FormData(form);
 
-    const subject = encodeURIComponent(`Consulta de ${nombre} - ${empresa}`);
-    const body = encodeURIComponent(
-      `Nombre: ${nombre}\nEmpresa: ${empresa}\nRubro: ${rubro}\nTeléfono: ${telefono}\nServicio de interés: ${servicio}\n\nMensaje:\n${mensaje}`
-    );
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
 
-    window.open(`mailto:sehea.asesoria@gmail.com?subject=${subject}&body=${body}`, "_self");
-    toast.success("Se abrirá tu cliente de correo para enviar la consulta.");
+      if (response.ok) {
+        setSent(true);
+        toast.success("¡Consulta enviada con éxito! Te contactaremos pronto.");
+        form.reset();
+      } else {
+        toast.error("Hubo un error al enviar. Intentá de nuevo.");
+      }
+    } catch {
+      toast.error("Error de conexión. Intentá de nuevo más tarde.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
