@@ -37,14 +37,16 @@
 </head>
 
   <body>
-    <form name="contacto" netlify netlify-honeypot="bot-field" hidden>
+    <form name="contacto" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contacto" />
       <input type="text" name="nombre" />
       <input type="text" name="empresa" />
-      <select name="rubro"></select>
+      <input type="text" name="rubro" />
       <input type="email" name="email" />
       <input type="tel" name="telefono" />
-      <select name="servicio"></select>
+      <input type="text" name="servicio" />
       <textarea name="mensaje"></textarea>
+      <button type="submit">Enviar</button>
     </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
