@@ -23,10 +23,10 @@ const ContactSection = () => {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("https://formspree.io/f/xanypboe", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        headers: { "Accept": "application/json" },
+        body: formData,
       });
 
       if (response.ok) {
@@ -61,8 +61,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Form */}
-          <form onSubmit={handleSubmit} name="contacto" method="POST" data-netlify="true" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
-            <input type="hidden" name="form-name" value="contacto" />
+          <form onSubmit={handleSubmit} method="POST" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
             <input required name="nombre" placeholder="Nombre completo *" className={inputClass} maxLength={100} />
             <input required name="empresa" placeholder="Empresa *" className={inputClass} maxLength={100} />
             <select required name="rubro" className={inputClass} defaultValue="">
