@@ -30,6 +30,16 @@
   </head>
 
   <body>
+    <!-- Netlify Forms hidden form for bot detection -->
+    <form name="contacto-sehea" netlify netlify-honeypot="bot-field" hidden>
+      <input name="nombre" />
+      <input name="empresa" />
+      <input name="rubro" />
+      <input name="email" />
+      <input name="telefono" />
+      <input name="servicio" />
+      <textarea name="mensaje"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
