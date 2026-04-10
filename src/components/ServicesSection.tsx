@@ -37,7 +37,7 @@ const ServicesSection = () => (
           Soluciones integrales en seguridad laboral
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Brindamos asesoramiento completo basado en la legislación argentina vigente para proteger a tu equipo y tu empresa.
+          Brindamos asesoramiento técnico y Asesoría en Higiene basada en la Normativa SRT vigente para proteger a tu equipo y tu empresa en Mar del Plata y zona.
         </p>
       </div>
 
