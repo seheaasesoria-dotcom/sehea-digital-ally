@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
-import { toast } from "sonner";
 
 const rubros = ["Industria", "Construcción", "Agro", "Comercio", "Servicios", "Otro"];
 const servicios = [
@@ -13,36 +11,6 @@ const servicios = [
 ];
 
 const ContactSection = () => {
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://formspree.io/f/xanypboe", {
-        method: "POST",
-        headers: { "Accept": "application/json" },
-        body: formData,
-      });
-
-      if (response.ok) {
-        setSent(true);
-        toast.success("¡Consulta enviada con éxito! Te contactaremos pronto.");
-        form.reset();
-      } else {
-        toast.error("Hubo un error al enviar. Intentá de nuevo.");
-      }
-    } catch {
-      toast.error("Error de conexión. Intentá de nuevo más tarde.");
-    } finally {
-      setSending(false);
-    }
-  };
-
   const inputClass =
     "w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow";
 
@@ -61,7 +29,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Form */}
-          <form onSubmit={handleSubmit} method="POST" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+          <form action="https://formspree.io/f/xanypboe" method="POST" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
             <input required name="nombre" placeholder="Nombre completo *" className={inputClass} maxLength={100} />
             <input required name="empresa" placeholder="Empresa *" className={inputClass} maxLength={100} />
             <select required name="rubro" className={inputClass} defaultValue="">
@@ -78,11 +46,10 @@ const ContactSection = () => {
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                disabled={sending}
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-3.5 text-sm font-bold text-secondary-foreground hover:opacity-90 transition-opacity disabled:opacity-60"
               >
                 <Send size={16} />
-                {sending ? "Enviando…" : "Enviar Consulta"}
+                Enviar Consulta
               </button>
             </div>
           </form>
