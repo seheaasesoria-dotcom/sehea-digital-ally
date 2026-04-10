@@ -117,7 +117,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground text-sm">Email</h4>
-                <p className="text-muted-foreground text-sm">sehea.asesoria@gmail.com</p>
+                <a href="mailto:info@sehea.com.ar" className="text-muted-foreground text-sm hover:text-foreground transition-colors">info@sehea.com.ar</a>
               </div>
             </div>
             <div className="flex items-start gap-4">
