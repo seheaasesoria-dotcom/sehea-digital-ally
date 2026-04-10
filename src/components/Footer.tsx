@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <img src={logo} alt="SEHEA" className="h-10 mb-4" />
           <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-            Consultora integral en Seguridad e Higiene Laboral. Protegemos tu capital humano.
+            Consultoría integral en Seguridad Industrial e Higiene Laboral en Mar del Plata. Protegemos tu capital humano.
           </p>
         </div>
 

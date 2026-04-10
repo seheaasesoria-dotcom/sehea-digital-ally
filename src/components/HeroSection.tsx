@@ -13,7 +13,7 @@ const HeroSection = () => (
       <div className="max-w-3xl animate-fade-up">
         <div className="inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-1.5 mb-6">
           <Shield size={16} className="text-secondary" />
-          <span className="text-sm font-medium text-secondary">Consultora Integral en Seguridad e Higiene</span>
+          <span className="text-sm font-medium text-secondary">Asesoría en Higiene y Seguridad Industrial</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight mb-6">
@@ -22,7 +22,7 @@ const HeroSection = () => (
         </h1>
 
         <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed">
-          Protegemos tu capital humano y aseguramos el cumplimiento normativo de tu empresa frente a la SRT y ART. Prevenimos riesgos, optimizamos recursos.
+          Protegemos tu capital humano en Mar del Plata y zona con cumplimiento de la Normativa SRT, gestión de ART, capacitación de personal y planes de emergencia. Seguridad Industrial a tu medida.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
