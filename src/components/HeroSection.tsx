@@ -5,7 +5,7 @@ const HeroSection = () => (
   <section id="inicio" className="relative min-h-screen flex items-center pt-20">
     {/* Background image with overlay */}
     <div className="absolute inset-0">
-      <img src={heroBg} alt="" className="w-full h-full object-cover" />
+      <img src={heroBg} alt="SEHEA Consultora en Seguridad e Higiene Laboral en Mar del Plata" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-hero opacity-90" />
     </div>
 
@@ -17,7 +17,7 @@ const HeroSection = () => (
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight mb-6">
-          SEHEA — Tu aliado estratégico en{" "}
+          Asesoría Integral SEHEA: Expertos en{" "}
           <span className="text-gradient">Seguridad e Higiene Laboral</span>
         </h1>
 

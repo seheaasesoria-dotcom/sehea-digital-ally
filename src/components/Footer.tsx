@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="container">
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div>
-          <img src={logo} alt="SEHEA" className="h-10 mb-4" />
+          <img src={logo} alt="Logo de SEHEA Consultora - Seguridad e Higiene Laboral" className="h-10 mb-4" />
           <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
             Consultoría integral en Seguridad Industrial e Higiene Laboral en Mar del Plata. Protegemos tu capital humano.
           </p>
@@ -40,7 +40,7 @@ const Footer = () => (
 
       <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center">
         <p className="text-primary-foreground/50 text-xs">
-          © {new Date().getFullYear()} SEHEA — Asesoría en Seguridad e Higiene. Todos los derechos reservados.
+          © {new Date().getFullYear()} SEHEA - Seguridad e Higiene Laboral. Todos los derechos reservados.
         </p>
       </div>
     </div>
