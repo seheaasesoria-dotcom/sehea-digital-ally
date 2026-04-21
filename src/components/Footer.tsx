@@ -1,5 +1,5 @@
 import logo from "@/assets/sehea-logo.png";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-primary py-12">
@@ -28,11 +28,8 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold text-primary-foreground text-sm mb-4">Seguinos</h4>
           <div className="flex gap-3">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/sehea-seguridad-e-higiene-laboral" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors" aria-label="LinkedIn">
               <Linkedin size={18} className="text-primary-foreground" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors" aria-label="Instagram">
-              <Instagram size={18} className="text-primary-foreground" />
             </a>
           </div>
         </div>
