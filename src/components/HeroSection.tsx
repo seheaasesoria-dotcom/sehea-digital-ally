@@ -22,7 +22,7 @@ const HeroSection = () => (
         </h1>
 
         <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed">
-          Protegemos tu capital humano en Mar del Plata y zona con cumplimiento de la Normativa SRT, gestión de ART, capacitación de personal y planes de emergencia. Seguridad Industrial a tu medida.
+          Fomentamos la protección del talento organizacional en Mar del Plata y zona con cumplimiento de la Normativa SRT, gestión de ART, capacitación de personal y planes de emergencia. Seguridad Industrial a tu medida.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
