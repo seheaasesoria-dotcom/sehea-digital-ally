@@ -5,6 +5,7 @@ import WhyUsSection from "@/components/WhyUsSection";
 import VideoSection from "@/components/VideoSection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import ContactSection from "@/components/ContactSection";
+import CoverageSection from "@/components/CoverageSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -18,6 +19,7 @@ const Index = () => (
       <VideoSection />
       <LeadMagnetSection />
       <ContactSection />
+      <CoverageSection />
     </main>
     <Footer />
     <WhatsAppButton />
