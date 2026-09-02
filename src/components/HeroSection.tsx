@@ -5,7 +5,7 @@ const HeroSection = () => (
   <section id="inicio" className="relative min-h-screen flex items-center pt-20">
     {/* Background image with overlay */}
     <div className="absolute inset-0">
-      <img src={heroBg} alt="SEHEA Consultora en Seguridad e Higiene Laboral en Mar del Plata" className="w-full h-full object-cover" />
+      <img src={heroBg} alt="SEHEA Consultora en Seguridad e Higiene Laboral en Mar del Plata y Costa Atlántica" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-hero opacity-90" />
     </div>
 
@@ -22,7 +22,7 @@ const HeroSection = () => (
         </h1>
 
         <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed">
-          Fomentamos la protección del talento organizacional en Mar del Plata y zona con cumplimiento de la Normativa SRT, gestión de ART, capacitación de personal y planes de emergencia. Seguridad Industrial a tu medida.
+          Asesoramiento profesional en Seguridad e Higiene para industrias, comercios, obras y consorcios en Mar del Plata y toda la Costa Atlántica. Fomentamos la protección del talento organizacional con cumplimiento de la Normativa SRT, gestión de ART, capacitación de personal y planes de emergencia. Seguridad Industrial a tu medida.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
