@@ -37,7 +37,7 @@ const Footer = () => (
 
       <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center">
         <p className="text-primary-foreground/50 text-xs">
-          © {new Date().getFullYear()} SEHEA - Seguridad e Higiene Laboral. Todos los derechos reservados.
+          © {new Date().getFullYear()} SEHEA - Seguridad e Higiene Laboral. Mar del Plata y Costa Atlántica. Todos los derechos reservados.
         </p>
       </div>
     </div>
