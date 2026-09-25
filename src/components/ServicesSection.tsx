@@ -1,4 +1,4 @@
-import { Scale, HardHat, Activity, Flame, GraduationCap, ClipboardCheck, FileText } from "lucide-react";
+import { Scale, HardHat, Activity, Flame, GraduationCap, ClipboardCheck, FileText, Search, Siren } from "lucide-react";
 
 const services = [
   {
@@ -35,6 +35,16 @@ const services = [
     icon: FileText,
     title: "Documentación Técnica para Licitaciones",
     description: "Elaboración de legajo técnico, programas de seguridad y certificaciones requeridas para participar como proveedor o contratista.",
+  },
+  {
+    icon: Search,
+    title: "Investigación de Accidentes Laborales",
+    description: "Informes técnicos de siniestros para la ART y respaldo legal de la empresa ante cada accidente.",
+  },
+  {
+    icon: Siren,
+    title: "Simulacros de Evacuación",
+    description: "Ejecución y evaluación de simulacros con informe de resultados, según normativa vigente y requisitos de aseguradoras.",
   },
 ];
 
