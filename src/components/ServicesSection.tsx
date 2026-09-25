@@ -1,4 +1,4 @@
-import { Scale, HardHat, Activity, Flame, GraduationCap } from "lucide-react";
+import { Scale, HardHat, Activity, Flame, GraduationCap, ClipboardCheck, FileText } from "lucide-react";
 
 const services = [
   {
@@ -25,6 +25,16 @@ const services = [
     icon: GraduationCap,
     title: "Capacitación del Personal",
     description: "Entrenamientos en uso de EPP, riesgos específicos y manejo de emergencias (Capítulo 21, Dec. 351/79).",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Auditorías Preventivas de Cumplimiento",
+    description: "Diagnóstico y corrección de brechas normativas antes de una inspección de la SRT o el Ministerio de Trabajo.",
+  },
+  {
+    icon: FileText,
+    title: "Documentación Técnica para Licitaciones",
+    description: "Elaboración de legajo técnico, programas de seguridad y certificaciones requeridas para participar como proveedor o contratista.",
   },
 ];
 
