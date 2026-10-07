@@ -1,5 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
-import { BadgeCheck, Award, ArrowRight } from "lucide-react";
+import { Shield, BadgeCheck, Award, ArrowRight } from "lucide-react";
 
 const trustItems = [
   { icon: BadgeCheck, text: "Profesional matriculado · CPSH 8083 PBA" },
