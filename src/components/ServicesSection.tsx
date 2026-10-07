@@ -1,52 +1,5 @@
-import { Scale, HardHat, Activity, Flame, GraduationCap, ClipboardCheck, FileText, Search, Siren } from "lucide-react";
-
-const services = [
-  {
-    icon: Scale,
-    title: "Gestión Integral y Asesoramiento Legal",
-    description: "Cumplimiento de la Ley 19.587 de Higiene y Seguridad y la Ley 24.557 de Riesgos del Trabajo. Representación ante SRT, ART y Ministerios.",
-  },
-  {
-    icon: HardHat,
-    title: "Programas de Seguridad",
-    description: "Confección de programas para Construcción (Dec. 911/96), Agro (Dec. 617/97) e Industria (Dec. 351/79).",
-  },
-  {
-    icon: Activity,
-    title: "Mediciones Ambientales (Protocolos SRT)",
-    description: "Estudios de iluminación (Res. 84/2012), Ruido (Res. 85/2012), Puesta a tierra (Res. 900/15), Ergonomía (Res. 886/15) y Contaminantes Químicos (Res. 861/15).",
-  },
-  {
-    icon: Flame,
-    title: "Prevención y Protección contra Incendios",
-    description: "Estudios de carga de fuego, planes de evacuación y diseño de redes de incendio (Anexo VII, Dec. 351/79).",
-  },
-  {
-    icon: GraduationCap,
-    title: "Capacitación del Personal",
-    description: "Entrenamientos en uso de EPP, riesgos específicos y manejo de emergencias (Capítulo 21, Dec. 351/79).",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Auditorías Preventivas de Cumplimiento",
-    description: "Diagnóstico y corrección de brechas normativas antes de una inspección de la SRT o el Ministerio de Trabajo.",
-  },
-  {
-    icon: FileText,
-    title: "Documentación Técnica para Licitaciones",
-    description: "Elaboración de legajo técnico, programas de seguridad y certificaciones requeridas para participar como proveedor o contratista.",
-  },
-  {
-    icon: Search,
-    title: "Investigación de Accidentes Laborales",
-    description: "Informes técnicos de siniestros para la ART y respaldo legal de la empresa ante cada accidente.",
-  },
-  {
-    icon: Siren,
-    title: "Simulacros de Evacuación",
-    description: "Ejecución y evaluación de simulacros con informe de resultados, según normativa vigente y requisitos de aseguradoras.",
-  },
-];
+import { Link } from "react-router-dom";
+import { services } from "@/data/services";
 
 const ServicesSection = () => (
   <section id="servicios" className="py-20 md:py-28 bg-surface">
@@ -62,17 +15,19 @@ const ServicesSection = () => (
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s, i) => (
-          <div
-            key={i}
-            className="group bg-card rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+        {services.map((s) => (
+          <Link
+            key={s.slug}
+            to={`/servicios/${s.slug}`}
+            className="group flex flex-col bg-card rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
           >
             <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
               <s.icon size={24} className="text-secondary" />
             </div>
             <h3 className="text-lg font-bold text-foreground mb-3">{s.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
-          </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">{s.shortDescription}</p>
+            <span className="mt-4 text-sm font-semibold text-secondary">Ver más →</span>
+          </Link>
         ))}
       </div>
     </div>
