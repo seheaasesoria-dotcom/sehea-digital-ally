@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <img src={logo} alt="Logo de SEHEA Consultora - Seguridad e Higiene Laboral" className="h-10 mb-4" />
           <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-            Consultoría integral en Seguridad Industrial e Higiene Laboral en Mar del Plata y la Costa Atlántica. Fomentamos la protección del talento organizacional.
+            Consultoría integral en Higiene y Seguridad Laboral en Mar del Plata y la Costa Atlántica. Fomentamos la protección del talento organizacional.
           </p>
         </div>
 
