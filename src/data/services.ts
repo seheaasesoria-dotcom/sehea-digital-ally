@@ -1,8 +1,5 @@
 // Contenido editable de las páginas de servicios.
-// "[COMPLETAR]" marca datos que faltan confirmar (periodicidad, plazos, precios, etc.).
 import { Scale, HardHat, Activity, Flame, GraduationCap, ClipboardCheck, FileText, Search, Siren, type LucideIcon } from "lucide-react";
-
-export const PENDING = "[COMPLETAR]";
 
 export interface Service {
   slug: string;
@@ -16,20 +13,14 @@ export interface Service {
   regulation: string;
   deliverables: string[];
   steps: { title: string; text: string }[];
-  faqs: { q: string; a: string }[];
   related: string[]; // slugs
 }
 
-const defaultSteps = (execution: string) => [
-  { title: "Relevamiento", text: `Visitamos tu empresa y analizamos la situación actual. Plazo: ${PENDING}` },
-  { title: "Ejecución", text: `${execution} Plazo: ${PENDING}` },
-  { title: "Informe", text: `Te entregamos la documentación firmada por profesional matriculado. Plazo de entrega: ${PENDING}` },
-  { title: "Seguimiento", text: `Acompañamos la implementación de las mejoras. Periodicidad: ${PENDING}` },
-];
-
-const commonFaqs = (name: string) => [
-  { q: `¿Cuánto cuesta el servicio de ${name}?`, a: `${PENDING} El valor depende del tamaño y la actividad de la empresa. Consultá sin cargo.` },
-  { q: "¿Cada cuánto tiempo hay que realizarlo?", a: PENDING },
+const defaultSteps = () => [
+  { title: "Relevamiento", text: "Visitamos tu empresa y analizamos la situación actual." },
+  { title: "Ejecución", text: "Gestionamos la documentación y los trámites ante los organismos." },
+  { title: "Informe", text: "Te entregamos la documentación firmada por profesional matriculado." },
+  { title: "Seguimiento", text: "Acompañamos la implementación de las mejoras." },
 ];
 
 export const services: Service[] = [
@@ -41,15 +32,10 @@ export const services: Service[] = [
     seoTitle: "Gestión Integral y Asesoramiento Legal en Higiene y Seguridad | SEHEA Mar del Plata",
     seoDescription: "Cumplimiento de la Ley 19.587 y la Ley 24.557. Representación ante SRT, ART y Ministerios en Mar del Plata y la Costa Atlántica.",
     whatIs: "Nos ocupamos de que tu empresa cumpla con las leyes de Higiene y Seguridad y de Riesgos del Trabajo, y te representamos ante la SRT, la ART y los Ministerios.",
-    whoNeedsIt: `Empresas con personal en relación de dependencia. Alcance según actividad y cantidad de trabajadores: ${PENDING}`,
+    whoNeedsIt: "Empresas con personal en relación de dependencia.",
     regulation: "Ley 19.587 de Higiene y Seguridad en el Trabajo y Ley 24.557 de Riesgos del Trabajo.",
-    deliverables: ["Diagnóstico de cumplimiento normativo", "Representación ante SRT, ART y Ministerios", `Otros entregables: ${PENDING}`],
-    steps: defaultSteps("Gestionamos la documentación y los trámites ante los organismos."),
-    faqs: [
-      ...commonFaqs("Gestión Integral"),
-      { q: "¿Me representan ante una inspección?", a: "Sí, brindamos representación ante SRT, ART y Ministerios." },
-      { q: "¿Qué leyes tengo que cumplir?", a: "La Ley 19.587 de Higiene y Seguridad y la Ley 24.557 de Riesgos del Trabajo." },
-    ],
+    deliverables: ["Diagnóstico de cumplimiento normativo", "Representación ante SRT, ART y Ministerios"],
+    steps: defaultSteps(),
     related: ["auditorias-de-cumplimiento", "programas-de-seguridad", "mediciones-ambientales"],
   },
   {
@@ -62,13 +48,8 @@ export const services: Service[] = [
     whatIs: "Elaboramos el programa de seguridad que exige la normativa según tu actividad: construcción, agro o industria.",
     whoNeedsIt: "Empresas de construcción, actividades agrarias e industrias.",
     regulation: "Construcción: Dec. 911/96. Agro: Dec. 617/97. Industria: Dec. 351/79.",
-    deliverables: ["Programa de seguridad según actividad", `Otros entregables: ${PENDING}`],
-    steps: defaultSteps("Confeccionamos el programa de seguridad correspondiente a tu actividad."),
-    faqs: [
-      ...commonFaqs("Programas de Seguridad"),
-      { q: "¿Qué decreto aplica a mi actividad?", a: "Construcción: Dec. 911/96; Agro: Dec. 617/97; Industria: Dec. 351/79." },
-      { q: "¿Cuánto tarda en estar listo?", a: PENDING },
-    ],
+    deliverables: ["Programa de seguridad según actividad"],
+    steps: defaultSteps(),
     related: ["documentacion-licitaciones", "capacitacion-del-personal", "gestion-integral-asesoramiento-legal"],
   },
   {
@@ -79,15 +60,10 @@ export const services: Service[] = [
     seoTitle: "Mediciones Ambientales y Protocolos SRT | SEHEA Mar del Plata",
     seoDescription: "Mediciones de iluminación, ruido, puesta a tierra, ergonomía y contaminantes químicos según protocolos SRT en Mar del Plata y la Costa.",
     whatIs: "Medimos las condiciones del ambiente de trabajo (luz, ruido, instalación eléctrica, ergonomía y contaminantes) siguiendo los protocolos oficiales de la SRT.",
-    whoNeedsIt: `Empresas cuyos puestos de trabajo requieran estas mediciones. Criterios específicos: ${PENDING}`,
+    whoNeedsIt: "Empresas cuyos puestos de trabajo requieran estas mediciones.",
     regulation: "Iluminación: Res. SRT 84/2012. Ruido: Res. SRT 85/2012. Puesta a tierra: Res. SRT 900/15. Ergonomía: Res. SRT 886/15. Contaminantes químicos: Res. SRT 861/15.",
     deliverables: ["Protocolo de iluminación", "Protocolo de ruido", "Protocolo de puesta a tierra", "Protocolo de ergonomía", "Protocolo de contaminantes químicos"],
-    steps: defaultSteps("Realizamos las mediciones en tu establecimiento con instrumental adecuado."),
-    faqs: [
-      ...commonFaqs("Mediciones Ambientales"),
-      { q: "¿Qué mediciones realizan?", a: "Iluminación, ruido, puesta a tierra, ergonomía y contaminantes químicos." },
-      { q: "¿Los protocolos son válidos ante la SRT?", a: "Se realizan según las resoluciones SRT 84/2012, 85/2012, 900/15, 886/15 y 861/15." },
-    ],
+    steps: defaultSteps(),
     related: ["proteccion-contra-incendios", "auditorias-de-cumplimiento", "programas-de-seguridad"],
   },
   {
@@ -98,15 +74,10 @@ export const services: Service[] = [
     seoTitle: "Prevención y Protección contra Incendios | SEHEA Mar del Plata",
     seoDescription: "Estudios de carga de fuego, planes de evacuación y diseño de redes de incendio (Anexo VII, Dec. 351/79) en Mar del Plata y la Costa.",
     whatIs: "Analizamos el riesgo de incendio de tu establecimiento, armamos el plan de evacuación y diseñamos la red de incendio.",
-    whoNeedsIt: `Establecimientos alcanzados por el Dec. 351/79. Detalle por tipo de establecimiento: ${PENDING}`,
+    whoNeedsIt: "Establecimientos alcanzados por el Dec. 351/79.",
     regulation: "Anexo VII del Decreto 351/79.",
     deliverables: ["Estudio de carga de fuego", "Plan de evacuación", "Diseño de red de incendio"],
-    steps: defaultSteps("Realizamos el estudio de carga de fuego y diseñamos las medidas de protección."),
-    faqs: [
-      ...commonFaqs("Protección contra Incendios"),
-      { q: "¿Qué norma regula la protección contra incendios?", a: "El Anexo VII del Decreto 351/79." },
-      { q: "¿Incluye el plan de evacuación?", a: "Sí, el servicio incluye planes de evacuación." },
-    ],
+    steps: defaultSteps(),
     related: ["simulacros-de-evacuacion", "capacitacion-del-personal", "mediciones-ambientales"],
   },
   {
@@ -119,13 +90,8 @@ export const services: Service[] = [
     whatIs: "Capacitamos a tu equipo en el uso de elementos de protección personal, los riesgos de su tarea y cómo actuar ante emergencias.",
     whoNeedsIt: "Empresas con personal expuesto a riesgos laborales.",
     regulation: "Capítulo 21 del Decreto 351/79.",
-    deliverables: ["Capacitación en uso de EPP", "Capacitación en riesgos específicos", "Capacitación en manejo de emergencias", `Constancias / registros: ${PENDING}`],
-    steps: defaultSteps("Dictamos las capacitaciones en planta o en el lugar que definas."),
-    faqs: [
-      ...commonFaqs("Capacitación del Personal"),
-      { q: "¿Las capacitaciones son en la empresa?", a: "Sí, realizamos capacitaciones en planta en toda la región." },
-      { q: "¿Qué temas incluyen?", a: "Uso de EPP, riesgos específicos y manejo de emergencias." },
-    ],
+    deliverables: ["Capacitación en uso de EPP", "Capacitación en riesgos específicos", "Capacitación en manejo de emergencias"],
+    steps: defaultSteps(),
     related: ["simulacros-de-evacuacion", "programas-de-seguridad", "proteccion-contra-incendios"],
   },
   {
@@ -137,14 +103,9 @@ export const services: Service[] = [
     seoDescription: "Diagnóstico y corrección de brechas normativas antes de una inspección de la SRT o el Ministerio de Trabajo en Mar del Plata y la Costa.",
     whatIs: "Revisamos tu empresa como lo haría un inspector, detectamos lo que falta y te ayudamos a corregirlo antes de una inspección.",
     whoNeedsIt: "Empresas que quieren anticiparse a una inspección de la SRT o el Ministerio de Trabajo.",
-    regulation: `Normativa vigente de Higiene y Seguridad aplicable a tu actividad. Detalle: ${PENDING}`,
-    deliverables: ["Diagnóstico de brechas normativas", "Plan de corrección", `Otros entregables: ${PENDING}`],
-    steps: defaultSteps("Auditamos documentación e instalaciones frente a la normativa vigente."),
-    faqs: [
-      ...commonFaqs("Auditorías Preventivas"),
-      { q: "¿Sirve si ya tengo una inspección programada?", a: PENDING },
-      { q: "¿Qué organismos inspeccionan?", a: "Principalmente la SRT y el Ministerio de Trabajo." },
-    ],
+    regulation: "Normativa vigente de Higiene y Seguridad aplicable a tu actividad.",
+    deliverables: ["Diagnóstico de brechas normativas", "Plan de corrección"],
+    steps: defaultSteps(),
     related: ["gestion-integral-asesoramiento-legal", "mediciones-ambientales", "documentacion-licitaciones"],
   },
   {
@@ -156,14 +117,9 @@ export const services: Service[] = [
     seoDescription: "Legajo técnico, programas de seguridad y certificaciones para proveedores y contratistas en Mar del Plata y la Costa Atlántica.",
     whatIs: "Preparamos la documentación de Higiene y Seguridad que te piden para presentarte como proveedor o contratista.",
     whoNeedsIt: "Empresas que participan en licitaciones o trabajan como proveedores o contratistas.",
-    regulation: `Requisitos del pliego de cada licitación y normativa aplicable a la actividad. Detalle: ${PENDING}`,
+    regulation: "Requisitos del pliego de cada licitación y normativa aplicable a la actividad.",
     deliverables: ["Legajo técnico", "Programas de seguridad", "Certificaciones requeridas"],
-    steps: defaultSteps("Elaboramos la documentación según los requisitos del pliego."),
-    faqs: [
-      ...commonFaqs("Documentación para Licitaciones"),
-      { q: "¿Qué documentos incluye?", a: "Legajo técnico, programas de seguridad y certificaciones requeridas." },
-      { q: "¿En cuánto tiempo la entregan?", a: PENDING },
-    ],
+    steps: defaultSteps(),
     related: ["programas-de-seguridad", "auditorias-de-cumplimiento", "gestion-integral-asesoramiento-legal"],
   },
   {
@@ -175,14 +131,9 @@ export const services: Service[] = [
     seoDescription: "Informes técnicos de siniestros para la ART y respaldo legal de la empresa ante cada accidente en Mar del Plata y la Costa Atlántica.",
     whatIs: "Cuando ocurre un accidente, investigamos qué pasó y elaboramos el informe técnico para la ART, que también respalda legalmente a tu empresa.",
     whoNeedsIt: "Empresas que tuvieron un accidente o incidente laboral.",
-    regulation: `Normativa aplicable: ${PENDING}`,
-    deliverables: ["Informe técnico del siniestro para la ART", "Respaldo documental para la empresa", `Otros entregables: ${PENDING}`],
-    steps: defaultSteps("Investigamos las causas del accidente en el lugar."),
-    faqs: [
-      ...commonFaqs("Investigación de Accidentes"),
-      { q: "¿El informe sirve para la ART?", a: "Sí, elaboramos informes técnicos de siniestros para la ART." },
-      { q: "¿Cuánto tardan en intervenir tras un accidente?", a: PENDING },
-    ],
+    regulation: "Normativa aplicable a la actividad.",
+    deliverables: ["Informe técnico del siniestro para la ART", "Respaldo documental para la empresa"],
+    steps: defaultSteps(),
     related: ["capacitacion-del-personal", "gestion-integral-asesoramiento-legal", "auditorias-de-cumplimiento"],
   },
   {
@@ -194,14 +145,9 @@ export const services: Service[] = [
     seoDescription: "Ejecución y evaluación de simulacros de evacuación con informe de resultados, según normativa vigente y requisitos de aseguradoras.",
     whatIs: "Organizamos y evaluamos simulacros de evacuación en tu establecimiento y te entregamos un informe con los resultados.",
     whoNeedsIt: "Establecimientos que deben acreditar simulacros por normativa o por requisitos de su aseguradora.",
-    regulation: `Normativa vigente y requisitos de aseguradoras. Detalle: ${PENDING}`,
+    regulation: "Normativa vigente y requisitos de aseguradoras.",
     deliverables: ["Ejecución del simulacro", "Evaluación del simulacro", "Informe de resultados"],
-    steps: defaultSteps("Coordinamos y ejecutamos el simulacro con tu personal."),
-    faqs: [
-      ...commonFaqs("Simulacros de Evacuación"),
-      { q: "¿Entregan un informe?", a: "Sí, cada simulacro incluye informe de resultados." },
-      { q: "¿Sirve para la aseguradora?", a: "Se realiza según normativa vigente y requisitos de aseguradoras." },
-    ],
+    steps: defaultSteps(),
     related: ["proteccion-contra-incendios", "capacitacion-del-personal", "investigacion-de-accidentes"],
   },
 ];
