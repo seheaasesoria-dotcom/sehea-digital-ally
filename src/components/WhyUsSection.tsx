@@ -9,7 +9,7 @@ const reasons = [
   {
     icon: Users,
     title: "Atención personalizada",
-    description: "Cada cliente recibe un plan a medida según su rubro, tamaño y nivel de riesgo.",
+    description: "Cada cliente recibe un plan a medida según su rubro, tamaño y nivel de riesgo. Con experiencia en industrias, capacitaciones y programas de seguridad.",
   },
   {
     icon: Cpu,
@@ -23,6 +23,11 @@ const reasons = [
   },
 ];
 
+const highlights = [
+  { value: "Industrias", label: "experiencia en distintos rubros industriales" },
+  { value: "PAT, ruido e iluminación", label: "mediciones con protocolos SRT" },
+];
+
 const WhyUsSection = () => (
   <section id="nosotros" className="py-20 md:py-28 bg-background">
     <div className="container">
@@ -32,7 +37,7 @@ const WhyUsSection = () => (
           Confianza, experiencia y resultados
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Más que una consultora, somos tu socio estratégico en la protección de tu capital humano.
+          Higiene y seguridad laboral con profesional matriculado, para que tu empresa esté en regla.
         </p>
       </div>
 
@@ -46,6 +51,17 @@ const WhyUsSection = () => (
             <p className="text-muted-foreground text-sm leading-relaxed">{r.description}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 rounded-2xl border border-border bg-secondary/5 px-6 py-8 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          {highlights.map((h) => (
+            <div key={h.value} className="text-center md:text-left">
+              <p className="text-2xl md:text-3xl font-extrabold text-secondary leading-tight">{h.value}</p>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{h.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
