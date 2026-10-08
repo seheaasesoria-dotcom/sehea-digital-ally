@@ -6,23 +6,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import NotFound from "./NotFound";
-import { getService, services, PENDING } from "@/data/services";
+import { getService, services } from "@/data/services";
 
 const BASE = "https://sehea.com.ar";
-
-const Pending = ({ text }: { text: string }) => {
-  const parts = text.split(PENDING);
-  return (
-    <>
-      {parts.map((p, i) => (
-        <span key={i}>
-          {p}
-          {i < parts.length - 1 && <mark className="bg-accent/30 text-foreground px-1 rounded font-semibold">{PENDING}</mark>}
-        </span>
-      ))}
-    </>
-  );
-};
 
 const setMeta = (selector: string, attr: string, value: string, create: () => HTMLElement) => {
   let el = document.head.querySelector(selector) as HTMLElement | null;
@@ -43,18 +29,8 @@ const ServicePage = () => {
     document.title = service.seoTitle;
     setMeta('meta[name="description"]', "content", service.seoDescription, () => Object.assign(document.createElement("meta"), { name: "description" }));
     setMeta('link[rel="canonical"]', "href", url, () => Object.assign(document.createElement("link"), { rel: "canonical" }));
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "faq-jsonld";
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: service.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-    });
-    document.head.appendChild(script);
     window.scrollTo(0, 0);
     return () => {
-      script.remove();
       document.title = prev.title;
       if (prev.canonical) document.head.querySelector('link[rel="canonical"]')?.setAttribute("href", prev.canonical);
     };
@@ -63,7 +39,7 @@ const ServicePage = () => {
   if (!service) return <NotFound />;
 
   const waLink = `https://wa.me/542235121114?text=${encodeURIComponent(`Hola, quiero consultar sobre el servicio de ${service.title} de SEHEA`)}`;
-  const related = service.related.map((s) => getService(s)).filter(Boolean) as typeof services;
+  const related = services.filter((candidate) => service.related.includes(candidate.slug));
   const inputClass = "w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -102,18 +78,18 @@ const ServicePage = () => {
         </header>
 
         <Section title="Qué es">
-          <p className="text-muted-foreground leading-relaxed text-lg"><Pending text={service.whatIs} /></p>
+          <p className="text-muted-foreground leading-relaxed text-lg">{service.whatIs}</p>
         </Section>
 
         <Section title="A quién le corresponde y qué norma lo exige" alt>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-card rounded-xl p-6 shadow-card">
               <h3 className="font-bold text-foreground mb-2">A quién le corresponde</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed"><Pending text={service.whoNeedsIt} /></p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{service.whoNeedsIt}</p>
             </div>
             <div className="bg-card rounded-xl p-6 shadow-card">
               <h3 className="font-bold text-foreground mb-2">Normativa</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed"><Pending text={service.regulation} /></p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{service.regulation}</p>
             </div>
           </div>
         </Section>
@@ -121,7 +97,7 @@ const ServicePage = () => {
         <Section title="Qué recibís">
           <ul className="space-y-3">
             {service.deliverables.map((d) => (
-              <li key={d} className="flex gap-3 text-foreground"><CheckCircle size={20} className="text-secondary shrink-0 mt-0.5" /><span><Pending text={d} /></span></li>
+              <li key={d} className="flex gap-3 text-foreground"><CheckCircle size={20} className="text-secondary shrink-0 mt-0.5" /><span>{d}</span></li>
             ))}
           </ul>
         </Section>
@@ -132,21 +108,10 @@ const ServicePage = () => {
               <li key={s.title} className="bg-card rounded-xl p-6 shadow-card">
                 <span className="w-9 h-9 rounded-full bg-secondary text-secondary-foreground font-bold flex items-center justify-center mb-3">{i + 1}</span>
                 <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed"><Pending text={s.text} /></p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.text}</p>
               </li>
             ))}
           </ol>
-        </Section>
-
-        <Section title="Preguntas frecuentes">
-          <div className="space-y-3">
-            {service.faqs.map((f) => (
-              <details key={f.q} className="bg-card rounded-xl p-5 shadow-card group">
-                <summary className="font-semibold text-foreground cursor-pointer">{f.q}</summary>
-                <p className="text-muted-foreground text-sm mt-3 leading-relaxed"><Pending text={f.a} /></p>
-              </details>
-            ))}
-          </div>
         </Section>
 
         <Section title="Consultanos por este servicio" alt>
