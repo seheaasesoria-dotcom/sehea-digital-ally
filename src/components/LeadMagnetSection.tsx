@@ -90,7 +90,7 @@ const LeadMagnetSection = () => {
               eBook Gratuito · PDF
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-              ¿Tu empresa cumple realmente con la normativa? Descargá nuestra Guía Estratégica
+              Guía gratuita de higiene y seguridad para PyMEs en Mar del Plata
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Descubrí cómo un servicio externo profesional protege tu rentabilidad y potencia tu
@@ -122,9 +122,8 @@ const LeadMagnetSection = () => {
                   maxLength={100}
                 />
                 <input
-                  required
                   name="empresa"
-                  placeholder="Empresa *"
+                  placeholder="Empresa (opcional)"
                   className={inputClass}
                   maxLength={100}
                 />
@@ -132,7 +131,7 @@ const LeadMagnetSection = () => {
                   required
                   name="email"
                   type="email"
-                  placeholder="Email corporativo *"
+                  placeholder="Email *"
                   className={`${inputClass} sm:col-span-2`}
                   maxLength={255}
                 />
