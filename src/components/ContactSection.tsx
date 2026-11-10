@@ -64,7 +64,7 @@ const ContactSection = () => {
             <div className="lg:col-span-3 flex flex-col items-center justify-center text-center py-16 gap-4">
               <CheckCircle size={48} className="text-secondary" />
               <h3 className="text-2xl font-bold text-foreground">¡Gracias por tu consulta!</h3>
-              <p className="text-muted-foreground">Te contactaremos en menos de 24 horas.</p>
+              <p className="text-muted-foreground">Gracias, te contactamos dentro de las 24 horas.</p>
               <button
                 onClick={() => setSent(false)}
                 className="mt-4 text-sm text-secondary underline hover:opacity-80"
@@ -75,12 +75,12 @@ const ContactSection = () => {
           ) : (
             <form onSubmit={handleSubmit} className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
               <input required name="name" placeholder="Nombre completo *" className={inputClass} maxLength={100} />
-              <input required name="empresa" placeholder="Empresa *" className={inputClass} maxLength={100} />
-              <select required name="rubro" className={inputClass} defaultValue="">
-                <option value="" disabled>Rubro *</option>
+              <input name="empresa" placeholder="Empresa (opcional)" className={inputClass} maxLength={100} />
+              <select name="rubro" className={inputClass} defaultValue="">
+                <option value="" disabled>Rubro (opcional)</option>
                 {rubros.map((r) => <option key={r}>{r}</option>)}
               </select>
-              <input required name="email" type="email" placeholder="Email corporativo *" className={inputClass} maxLength={255} />
+              <input name="email" type="email" placeholder="Email" className={inputClass} maxLength={255} />
               <input required name="telefono" type="tel" placeholder="Teléfono *" className={inputClass} maxLength={30} />
               <select required name="subject" className={inputClass} defaultValue="">
                 <option value="" disabled>Servicio de interés *</option>
