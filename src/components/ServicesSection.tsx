@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
 
+// Servicios que muestran "Ver más →" porque tienen página propia enlazada desde la home.
+const withOwnPage = [
+  "mediciones-ambientales",
+  "proteccion-contra-incendios",
+  "auditorias-de-cumplimiento",
+];
+
 const ServicesSection = () => (
   <section id="servicios" className="py-20 md:py-28 bg-surface">
     <div className="container">
