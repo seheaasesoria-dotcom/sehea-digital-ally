@@ -22,20 +22,35 @@ const ServicesSection = () => (
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s) => (
-          <Link
-            key={s.slug}
-            to={`/servicios/${s.slug}`}
-            className="group flex flex-col bg-card rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
-          >
-            <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
-              <s.icon size={24} className="text-secondary" />
+        {services.map((s) => {
+          const hasOwnPage = withOwnPage.includes(s.slug);
+          const card = (
+            <>
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                <s.icon size={24} className="text-secondary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-3">{s.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{s.shortDescription}</p>
+              {hasOwnPage && (
+                <span className="mt-4 text-sm font-semibold text-secondary">Ver más →</span>
+              )}
+            </>
+          );
+
+          return hasOwnPage ? (
+            <Link
+              key={s.slug}
+              to={`/servicios/${s.slug}`}
+              className="group flex flex-col bg-card rounded-xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+            >
+              {card}
+            </Link>
+          ) : (
+            <div key={s.slug} className="flex flex-col bg-card rounded-xl p-8 shadow-card">
+              {card}
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-3">{s.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{s.shortDescription}</p>
-            <span className="mt-4 text-sm font-semibold text-secondary">Ver más →</span>
-          </Link>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
